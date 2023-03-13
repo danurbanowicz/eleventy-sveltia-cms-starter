@@ -1,15 +1,14 @@
 # Netlify CMS Configuration File
 
 # The backend option specifies how to access the content for your site
+# Sveltia CMS currently supports github backend only
 backend:
-  name: git-gateway
-  branch: master # The branch to update (optional; defaults to master)
-
-# Uncomment below to enable drafts https://www.netlifycms.org/docs/add-to-your-site/#editorial-workflow
-# publish_mode: editorial_workflow
-
-# Uncomment below to enable a link to your published site in the header bar of Netlify CMS
-# site_url: https://eleventy-netlify-boilerplate.netlify.app/
+  name: github
+  repo: danurbanowicz/eleventy-sveltia-cms-starter # Path to your GitHub repository
+  branch: master #The branch to update (optional; defaults to master)
+  site_domain: danurbanowicz.com
+  base_url: https://api.netlify.com
+  auth_endpoint: auth
 
 media_folder: "static/img" # Media files will be stored in the repo under images/uploads
 
