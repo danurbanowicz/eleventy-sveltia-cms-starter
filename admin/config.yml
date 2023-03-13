@@ -6,9 +6,6 @@ backend:
   name: github
   repo: danurbanowicz/eleventy-sveltia-cms-starter # Path to your GitHub repository
   branch: master #The branch to update (optional; defaults to master)
-  site_domain: danurbanowicz.com
-  base_url: https://api.netlify.com
-  auth_endpoint: auth
 
 media_folder: "static/img" # Media files will be stored in the repo under images/uploads
 
