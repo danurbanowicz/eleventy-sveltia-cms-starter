@@ -9,14 +9,10 @@ eleventyNavigation:
 ---
 # Welcome
 
-This is a template for building a simple blog website with the [Eleventy static site generator](https://www.11ty.dev), with deployment to [Netlify](https://www.netlify.com).
+This is a template for building a simple blog website with the [Eleventy static site generator](https://www.11ty.dev), using GitHub as a data store, and with automated CI/CD deployment to [Netlify](https://www.netlify.com).
 
-Includes [Netlify CMS](https://www.netlifycms.org) for WYSIWYG content editing, and [Netlify Forms](https://www.netlify.com/docs/form-handling) for processing your site's form data.
+Includes [Sveltia CMS](https://github.com/sveltia/sveltia-cms) for content editing with Markdown, and [Netlify Forms](https://www.netlify.com/docs/form-handling) for processing your site's form data.
 
-[Log in to the Netlify CMS dashboard](/admin/)
+[Log in to Sveltia CMS with GitHub](/admin/)
 
-For more info on installation and usage, view the [project repo]({{ pkg.repository.url }}) on GitHub.
-
-Or click the button below to deploy your own copy of this project to Netlify.
-
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/danurbanowicz/eleventy-netlify-boilerplate&stack=cms)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/danurbanowicz/eleventy-sveltia-cms-starter&stack=cms)
