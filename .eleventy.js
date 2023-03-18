@@ -95,6 +95,10 @@ module.exports = function(eleventyConfig) {
     .use(markdownItAnchor, opts)
   );
 
+  eleventyConfig.setServerOptions({
+    liveReload: false
+  });
+
   return {
     templateFormats: ["md", "njk", "liquid"],
 
