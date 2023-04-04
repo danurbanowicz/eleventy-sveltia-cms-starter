@@ -1,27 +1,47 @@
+# Sveltia CMS configuration
+
+# This is where we configure the CMS repo and its collections and fields
+# Sveltia CMS generally follows the Decap CMS configuration spec
+# Decap CMS docs: https://decapcms.org/docs/intro/
+# Sveltia CMS docs: https://github.com/sveltia/sveltia-cms#features
+
+# Enter your repo and branch (defaults to master)
 backend:
   name: github
   repo: danurbanowicz/eleventy-sveltia-cms-starter
-  branch: master
+  # branch: master
 
-media_folder: "static/img"
+# The folder used to store uploaded images
+media_folder: "assets/img"
 
+# The CMS collections and their fields
 collections:
   - name: "blog"
-    label: "Post"
+    label: "Posts"
+    label_singular: "Post"
     folder: "posts"
     create: true
     slug: "{{slug}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Publish Date", name: "date", widget: "datetime" }
-      - { label: "Author", name: "author", widget: "string", default: "Anonymous" }
+      - { label: "Author", name: "author", widget: "relation", collection: "authors", search_fields: "name", value_field: "name" }
       - { label: "Summary", name: "summary", widget: "text" }
-      - { label: "Tags", name: "tags", widget: "list", default: ["post"] }
+      - { label: "Tags", name: "tags", widget: "list", default: ["post"], hint: "Enter tags separated by a comma" }
+      - label: "Image"
+        name: "image"
+        widget: "image"
+        hint: "Upload an image for this post (max. 1MB). You can also use an image URL."
+        media_library:
+          config:
+            max_file_size: 1024000 # maximum image file size in bytes
+      - { label: "Image Alt Text", name: "imageAltText", widget: "string" }
       - { label: "Body", name: "body", widget: "markdown" }
   - name: "pages"
-    label: "Page"
+    label: "Pages"
+    label_singular: "Page"
     folder: "pages"
-    create: false
+    create: true
     slug: "{{slug}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
@@ -33,4 +53,34 @@ collections:
         fields:
           - { label: "Key", name: "key", widget: "string" }
           - { label: "Order", name: "order", widget: "number", default: 0 }
-      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Body", name: "body", widget: "markdown", hint: "Plain text, Markdown, and HTML formatting is supported. See the Markdown cheat sheet: https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet" }
+  - name: "authors"
+    label: "Authors"
+    label_singular: "Author"
+    icon: "person"
+    folder: "authors"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Name", name: "name", widget: "string" }
+      - label: "Image"
+        name: "image"
+        widget: "image"
+        hint: "Upload an image for this author (max. 1MB). You can also use an image URL."
+        media_library:
+          config:
+            max_file_size: 1024000 # maximum image file size in bytes
+      - { label: "Description", name: "body", widget: "markdown", hint: "Plain text, Markdown, and HTML formatting is supported. See the Markdown cheat sheet: https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet" }
+  - name: "settings"
+    label: "Settings"
+    icon: "settings"
+    extension: "yml"
+    format: "yml"
+    files:
+      - file: "_data/site.yml"
+        label: "Site Settings"
+        name: "site"
+        fields:
+          - { label: "Site Title", name: "title", widget: "string", hint: "Your site's title, used for branding and SEO" }
+          - { label: "Site Description", name: "description", widget: "text", hint: "Your site's description, used for SEO" }
+          - { label: "Site URL", name: "url", widget: "string", hint: "Your live site's full URL" }

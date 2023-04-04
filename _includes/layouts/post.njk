@@ -2,30 +2,41 @@
 layout: layouts/base.njk
 section: post
 ---
-
 <article>
+
   <h1>{{ title }}</h1>
+
+  {% if summary %}
+    <p>{{ summary }}</p>
+  {% endif %}
+
   <p>
     <small>
-      <time datetime="{{ page.date | machineDate }}">{{ page.date | readableDate }}</time> by <a href="/authors/{{ author | slug }}/">{{ author }}</a>
+      Posted on
+      <time datetime="{{ page.date | machineDate }}">
+        {{ page.date | readableDate }}
+      </time>
+      by
+      <a href="/authors/{{ author | slug}}">{{ author }}</a>
+      {% if tags %}
+        in
+        {% for tag in tags %}
+          {%- if tag != "post" -%}
+            {% set tagUrl %}/tags/{{ tag }}/{% endset %}
+            <a href="{{ tagUrl | url }}" rel="tag">{{ tag }}</a>
+            {%- if loop.last %}{% else %},{% endif -%}
+          {%- endif -%}
+        {% endfor %}
+      {% endif %}
     </small>
   </p>
 
-  {{ layoutContent | safe }}
-
-  {% if tags %}
-    <p>
-    {% for tag in tags %}
-      {%- if tag != "post" -%}
-        {% set tagUrl %}/tags/{{ tag }}/{% endset %}
-        <a href="{{ tagUrl | url }}" rel="tag">{{ tag }}</a>
-      {%- endif -%}
-    {% endfor %}
-    </p>
+  {% if image %}
+    {% generateImage image, (imageAltText or title), "90vw" %}
   {% endif %}
+
+  {{ layoutContent | safe }}
 
 </article>
 
-<nav>
-  <a href="{{ '/blog/' | url }}">← Blog index</a>
-</nav>
+{% include "components/nav-back.njk" %}

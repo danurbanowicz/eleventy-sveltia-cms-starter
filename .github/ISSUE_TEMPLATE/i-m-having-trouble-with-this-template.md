@@ -1,11 +1,12 @@
 ---
 name: I'm having trouble with this template
 about: Have a problem? It might be a bug! Create a report to help us improve.
-title: ''
-labels: ''
-assignees: ''
-
+title: ""
+labels: ""
+assignees:
+  - danurbanowicz
 ---
+*Please fill in as many of the details below to assist us in debugging your issue. Issues deemed to be low-effort or with substantially missing details will be closed. Closed issues can be re-opened on request once the missing information has been added.*
 
 **Describe the bug**
 A clear and concise description of what the bug is.

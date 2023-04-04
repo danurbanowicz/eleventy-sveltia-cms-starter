@@ -1,0 +1,21 @@
+---
+layout: layouts/base.njk
+section: author
+permalink: "authors/{{ name | slug }}/"
+---
+<h1>{{ name }}</h1>
+
+{% if image %}
+  {% generateImage image, name, "90vw" %}
+{% endif %}
+
+{{ layoutContent | safe }}
+
+<p>All posts by {{ name }}</p>
+
+{% set postsList = collections.myAuthors[name] %}
+{% include "components/postsList.njk" %}
+
+{% set backUrl = "/authors/" %}
+{% set backTitle = "Authors" %}
+{% include "components/nav-back.njk" %}

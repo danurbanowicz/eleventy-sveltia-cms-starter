@@ -1,7 +1,6 @@
 {
   "layout": "layouts/post.njk",
   "permalink": "posts/{{ title | slug }}/index.html",
-  "author": "Anonymous",
   "tags": [
     "post"
   ]

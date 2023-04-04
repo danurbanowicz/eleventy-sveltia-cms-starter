@@ -1,10 +1,13 @@
 ---
 layout: layouts/blog.njk
 title: Blog
-metaDescription: A sample Blog page listing various posts and authors.
+description: A sample Blog index listing all posts.
 date: 2017-01-01
-permalink: /blog/index.html
 eleventyNavigation:
-  key: Blog
-  order: 2
+  key: blog
+  title: Blog
+  order: 1
 ---
+This is the blog index page, listing all posts by all [authors](/authors/).
+
+This text can be edited at: `pages/blog.md`

@@ -8,18 +8,18 @@ pagination:
     - nav
     - post
     - posts
+    - author
+    - authors
 permalink: /tags/{{ tag }}/
 layout: layouts/base.njk
 eleventyComputed:
-  title: "Tagged “{{ tag }}”"
-  metaDescription: "All posts from the Blog tagged with “{{ tag }}”"
+  title: "{{ tag | capitalize }}"
+  description: "All posts from the Blog tagged with “{{ tag }}”"
 ---
 
-<h1>Tagged “{{ tag }}”</h1>
+<h1>{{ title }}</h1>
 
-{% set postslist = collections[tag] %}
-{% include "components/postslist.njk" %}
+{% set postsList = collections[tag] %}
+{% include "components/postsList.njk" %}
 
-<nav>
-  <a href="{{ '/blog/' | url }}">← Blog index</a>
-</nav>
+{% include "components/nav-back.njk" %}

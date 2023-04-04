@@ -1,24 +1,37 @@
 ---
 title: Authors
-metaDescription: This page lists all of the Blog's authors.
+description: This page lists all of the Blog's authors.
 layout: layouts/base.njk
 pagination:
-  data: collections.authors
+  data: collections.myAuthors
   size: Infinity
+  alias: author
+eleventyNavigation:
+  key: authors
+  title: Authors
+  order: 1
 permalink: "authors/index.html"
 ---
-
 <h1>{{ title }}</h1>
 
 <section>
+
   {% for author in pagination.items %}
+
     <article>
-      <h3>
-        <a href="/authors/{{ author | slug }}">{{ author | safe }}</a>
-      </h3>
+
+      <a href="/authors/{{ author | slug }}">
+      
+        {% if author.image %}
+          {% generateImage author.image, author.name, "90vw" %}
+        {% endif %}
+
+        <h3>{{ author }}</h3>
+
+      </a>
+
     </article>
+
   {% endfor %}
-  <nav>
-    <a href="{{ '/blog/' | url }}">← Blog index</a>
-  </nav>
+  
 </section>

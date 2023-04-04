@@ -2,27 +2,43 @@ const { DateTime } = require("luxon");
 const CleanCSS = require("clean-css");
 const UglifyJS = require("uglify-js");
 const htmlmin = require("html-minifier");
+const yaml = require("js-yaml");
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
+const Image = require("@11ty/eleventy-img");
 
 module.exports = function(eleventyConfig) {
+
+  // https://www.11ty.dev/docs/plugins/image/
+  eleventyConfig.addShortcode("generateImage", async function(src, alt, sizes) {
+		let metadata = await Image(src, {
+			widths: [500, 1000, "auto"],
+			formats: ["avif", "jpeg"],
+      urlPath: "/assets/img/",
+      outputDir: "./_site/assets/img/"
+		});
+
+		let imageAttributes = {
+			alt,
+      sizes,
+			loading: "lazy",
+			decoding: "async",
+		};
+
+		return Image.generateHTML(metadata, imageAttributes);
+	});
 
   // Eleventy Navigation https://www.11ty.dev/docs/plugins/navigation/
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
 
-  // Configuration API: use eleventyConfig.addLayoutAlias(from, to) to add
-  // layout aliases! Say you have a bunch of existing content using
-  // layout: post. If you don’t want to rewrite all of those values, just map
-  // post to a new file like this:
-  // eleventyConfig.addLayoutAlias("post", "layouts/my_new_post_layout.njk");
+  // Add support for YAML data files with .yml extension
+  eleventyConfig.addDataExtension("yml", contents => yaml.load(contents));
 
   // Merge data instead of overriding
   // https://www.11ty.dev/docs/data-deep-merge/
   eleventyConfig.setDataDeepMerge(true);
 
-  // Add support for maintenance-free post authors
-  // Adds an authors collection using the author key in our post frontmatter
-  // Thanks to @pdehaan: https://github.com/pdehaan
-  eleventyConfig.addCollection("authors", collection => {
+  // Add support for post authors
+  eleventyConfig.addCollection("myAuthors", collection => {
     const blogs = collection.getFilteredByGlob("posts/*.md");
     return blogs.reduce((coll, post) => {
       const author = post.data.author;
@@ -32,19 +48,24 @@ module.exports = function(eleventyConfig) {
       if (!coll.hasOwnProperty(author)) {
         coll[author] = [];
       }
-      coll[author].push(post.data);
+      coll[author].push(post);
       return coll;
     }, {});
   });
 
   // Date formatting (human readable)
   eleventyConfig.addFilter("readableDate", dateObj => {
-    return DateTime.fromJSDate(dateObj).toFormat("dd LLL yyyy");
+    return DateTime.fromJSDate(dateObj).toFormat("LLL d yyyy");
   });
 
   // Date formatting (machine readable)
   eleventyConfig.addFilter("machineDate", dateObj => {
     return DateTime.fromJSDate(dateObj).toFormat("yyyy-MM-dd");
+  });
+
+  // Faux-pluralize an English string (used in components/postsList.njk)
+  eleventyConfig.addFilter("pluralize", function (term, count = 1) {
+    return count === 1 ? term : `${term}s`;
   });
 
   // Minify CSS
@@ -76,25 +97,10 @@ module.exports = function(eleventyConfig) {
   });
 
   // Don't process folders with static assets e.g. images
-  eleventyConfig.addPassthroughCopy("favicon.ico");
-  eleventyConfig.addPassthroughCopy("static/img");
-  eleventyConfig.addPassthroughCopy("admin/");
+  eleventyConfig.addPassthroughCopy("assets/img"); // don't process the image folder
+  eleventyConfig.addPassthroughCopy("admin/"); // don't process the CMS folder
 
-  /* Markdown Plugins */
-  let markdownIt = require("markdown-it");
-  let markdownItAnchor = require("markdown-it-anchor");
-  let options = {
-    breaks: true,
-    linkify: true
-  };
-  let opts = {
-    permalink: false
-  };
-
-  eleventyConfig.setLibrary("md", markdownIt(options)
-    .use(markdownItAnchor, opts)
-  );
-
+  // Disable 11ty dev server live reload when using CMS locally
   eleventyConfig.setServerOptions({
     liveReload: false
   });
