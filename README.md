@@ -66,8 +66,5 @@ All of your content edits are saved in your git repo commit history (a bit like 
 
 If you choose to install this project locally, you can use the CMS to make changes to your local repo, and then manually push those changes to your remote. This will trigger a new Netlify build of your site.
 
-### Why did I make this?
-
-My previous popular Eleventy template Eleventy Netlify Boilerplate was based on Netlify CMS, which after several years of development by Netlify and the wider community, was quietly abandoned in May 2022 (along with several hundred open issues). The Netlify CMS project has since been handed to new maintainers, and has been re-named Decap CMS.
 
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/danurbanowicz/eleventy-sveltia-cms-starter&stack=cms)

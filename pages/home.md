@@ -10,7 +10,7 @@ eleventyNavigation:
 ---
 This is a minimal starter template for building a static blog website on [Netlify](https://www.netlify.com) with [Eleventy](https://www.11ty.dev) and [Sveltia CMS](https://github.com/sveltia/sveltia-cms).
 
-[Sveltia CMS](https://github.com/sveltia/sveltia-cms) is a fast headless CMS based on [Netlify CMS](https://decapcms.org/) and [Svelte](https://svelte.dev/).
+[Sveltia CMS](https://github.com/sveltia/sveltia-cms) is a fast headless CMS based on [Netlify CMS](https://decapcms.org/) and built with performance in mind.
 
 [Log in to Sveltia CMS with GitHub](/admin/)
 
