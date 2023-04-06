@@ -20,3 +20,5 @@ The contact form on this page uses [Netlify Forms](https://www.netlify.com/docs/
 and saves them in the connected Netlify account where notifications can
 optionally be configured. Each submission is passed through a spam filter and
 if flagged, will display a CAPTCHA challenge to the user.
+
+After deployment, you should see this form show up in your Netlify site settings under **Forms**.
