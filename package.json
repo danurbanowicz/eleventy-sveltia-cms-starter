@@ -1,6 +1,6 @@
 {
   "name": "eleventy-sveltia-cms-starter",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A template for building a fast Eleventy blog with Sveltia CMS, for deployment to Netlify",
   "scripts": {
     "build": "npx @11ty/eleventy",
