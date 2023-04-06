@@ -1,5 +1,3 @@
-**🚨 Note: This project is a work in progress. Use at your own risk. Setup steps are incomplete and may be outdated. The deploy to Netlify buttons might not work. I hope to have this project ready to use by mid April 2023. 🚨**
-
 [![Netlify Status](https://api.netlify.com/api/v1/badges/5ebf7378-bb17-482f-8e28-8dfbe0cd8a6a/deploy-status)](https://app.netlify.com/sites/eleventy-sveltia-cms-starter/deploys)
 
 # Eleventy Sveltia CMS Starter
