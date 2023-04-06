@@ -5,7 +5,7 @@
 # Decap CMS docs: https://decapcms.org/docs/intro/
 # Sveltia CMS docs: https://github.com/sveltia/sveltia-cms#features
 
-# Enter your repo and branch (defaults to master)
+# Enter your GitHub repo path and branch (defaults to master)
 backend:
   name: github
   repo: danurbanowicz/eleventy-sveltia-cms-starter
@@ -31,10 +31,11 @@ collections:
       - label: "Image"
         name: "image"
         widget: "image"
-        hint: "Upload an image for this post (max. 1MB). You can also use an image URL."
-        media_library:
-          config:
-            max_file_size: 1024000 # maximum image file size in bytes
+        hint: "Upload an image for this post. You can also use an image URL."
+        # Uncomment the lines below if you want to set a max file upload size e.g. 2MB
+        #media_library:
+          #config:
+            #max_file_size: 2048000 # maximum image file size in bytes
       - { label: "Image Alt Text", name: "imageAltText", widget: "string" }
       - { label: "Body", name: "body", widget: "markdown" }
   - name: "pages"
@@ -46,13 +47,14 @@ collections:
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Publish Date", name: "date", widget: "datetime" }
-      - { label: "Permalink", name: "permalink", widget: "string" }
+      - { label: "Permalink", name: "permalink", widget: "hidden" }
       - label: "Navigation"
         name: "eleventyNavigation"
         widget: "object"
         fields:
-          - { label: "Key", name: "key", widget: "string" }
-          - { label: "Order", name: "order", widget: "number", default: 0 }
+          - { label: "Key", name: "key", widget: "string", hint: "A unique string for your navigation item, typically the page slug." }
+          - { label: "Title", name: "title", widget: "string", hint: "The visible title of the navigation item." }
+          - { label: "Order", name: "order", widget: "number", default: 999, hint: "Set a number between 0 and 999 to set the display order of your navigation item." }
       - { label: "Body", name: "body", widget: "markdown", hint: "Plain text, Markdown, and HTML formatting is supported. See the Markdown cheat sheet: https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet" }
   - name: "authors"
     label: "Authors"
@@ -81,6 +83,6 @@ collections:
         label: "Site Settings"
         name: "site"
         fields:
-          - { label: "Site Title", name: "title", widget: "string", hint: "Your site's title, used for branding and SEO" }
-          - { label: "Site Description", name: "description", widget: "text", hint: "Your site's description, used for SEO" }
-          - { label: "Site URL", name: "url", widget: "string", hint: "Your live site's full URL" }
+          - { label: "Site Title", name: "title", widget: "string", hint: "Your site's title, used for branding and SEO." }
+          - { label: "Site Description", name: "description", widget: "text", hint: "Your site's description, used for SEO." }
+          - { label: "Site URL", name: "url", widget: "string", hint: "Your live site's full URL." }
