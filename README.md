@@ -9,8 +9,9 @@
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/danurbanowicz/eleventy-sveltia-cms-starter)
 
 ### TO DO
-- Add steps for configuring the CMS
-- Add quick CMS tips e.g. preferences
+- Add quick CMS tips e.g. Sveltia CMS preferences
+- Finish the authors and blog page layouts
+- Add descriptive comments in project files to help new users
 
 ### What is it?
 
