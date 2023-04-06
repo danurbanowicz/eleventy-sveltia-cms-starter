@@ -71,7 +71,7 @@ backend:
 ```
 8. Push your changes to GitHub, wait for the new deploy to complete, and try logging in to your CMS admin e.g. `https://[your-netlify-site].netlify.app/admin/`.
 
-### How it works
+## How it works
 
 Sveltia CMS connects to your GitHub repo in the background via GitHub's GraphQL API. It uses your `admin/config.yml` file to know what your site's data looks like (pages, blog posts etc).
 
@@ -81,5 +81,12 @@ All of your content edits are saved in your git repo commit history so you can r
 
 If you choose to install this project locally, you can use the CMS to make changes to your local repo, and then manually push those changes to your remote (see steps above). This will trigger a new Netlify build of your site.
 
+## Getting help
+
+If you need help setting up this template, or if you have any ideas or suggestions, head over to [Discussions](https://github.com/danurbanowicz/eleventy-sveltia-cms-starter/discussions) and create a new discussion.
+
+If you've found a bug or think something in this template is broken (very possible) please [open a new issue](https://github.com/danurbanowicz/eleventy-sveltia-cms-starter/issues) and provide as much information as you can to ensure a fast solution.
+
+If you have a question specifically related to the Sveltia CMS project, we recommend you to head over there and [open a discussion](https://github.com/sveltia/sveltia-cms/discussions).
 
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/danurbanowicz/eleventy-sveltia-cms-starter)
