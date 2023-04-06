@@ -25,7 +25,9 @@ The aim is to get you up and running in a few minutes with a free, fast, and sec
 
 ### Quick Deploy to Netlify
 
-Optionally, you can [Deploy to this template to Netlify](https://app.netlify.com/start/deploy?repository=https://github.com/danurbanowicz/eleventy-sveltia-cms-starter) which will create a new GitHub repository for you and link it to your Netlify account, configuring automatic deploys in one step. Important: You will still need to configure the CMS and setup an OAuth application in GitHub to be able to authenticate and use the CMS on your live site (see steps below).
+Optionally, you can [Deploy to this template to Netlify](https://app.netlify.com/start/deploy?repository=https://github.com/danurbanowicz/eleventy-sveltia-cms-starter) which will create a new GitHub repository for you and link it to your Netlify account, configuring automatic deploys in one step.
+
+*Important: You will still need to configure the CMS and set up an OAuth application in GitHub to be able to authenticate and use the CMS on your live site (see steps below).*
 
 
 ### Install this template
