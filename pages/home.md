@@ -8,9 +8,11 @@ eleventyNavigation:
   title: Home
   order: 0
 ---
-This is a minimal starter template for building a static blog website on [Netlify](https://www.netlify.com) with [Eleventy](https://www.11ty.dev) and [Sveltia CMS](https://github.com/sveltia/sveltia-cms).
+This is a template for building a simple blog website with [Eleventy](https://www.11ty.dev), [Sveltia CMS](https://github.com/sveltia/sveltia-cms), and with automatic deployment to [Netlify](https://www.netlify.com).
 
-[Sveltia CMS](https://github.com/sveltia/sveltia-cms) is a fast headless CMS based on [Netlify CMS](https://decapcms.org/) and built with performance in mind.
+The aim is to get you up and running in a few minutes with a free, fast, and secure blog website with a CMS for editing your content.
+
+[Sveltia CMS](https://github.com/sveltia/sveltia-cms) is a fast headless CMS based on [Netlify/Decap CMS](https://decapcms.org/).
 
 [Log in to Sveltia CMS with GitHub](/admin/)
 
