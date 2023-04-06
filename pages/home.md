@@ -14,7 +14,7 @@ The aim is to get you up and running in a few minutes with a free, fast, and sec
 
 [Sveltia CMS](https://github.com/sveltia/sveltia-cms) is a fast headless CMS based on [Netlify/Decap CMS](https://decapcms.org/).
 
-[Log in to Sveltia CMS with GitHub](/admin/)
+[Login to Sveltia CMS with GitHub](/admin/)
 
 For more info on installation and usage, view the [project repo]({{ pkg.repository.url }}) on GitHub.
 
