@@ -4,15 +4,13 @@
 
 # Eleventy Sveltia CMS Starter
 
-## https://sveltia-cms.danurbanowicz.com/
+## Demo: https://sveltia-cms.danurbanowicz.com/
 
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/danurbanowicz/eleventy-sveltia-cms-starter)
 
-### TODO
-- Add steps for auth setup
+### TO DO
 - Add steps for configuring the CMS
 - Add quick CMS tips e.g. preferences
-- Add steps for local Eleventy development
 
 ### What is it?
 
@@ -24,32 +22,45 @@ The aim is to get you up and running in a few minutes with a free, fast, and sec
 
 - A GitHub account
 - A Netlify account
-- Basic knowledge of the command line and git if you want to install locally
+- Basic knowledge of the command line and git
 
-### Install this template (Easy 🦥)
+### Quick Deploy to Netlify
 
-1. Press the [Deploy to Netlify](https://app.netlify.com/start/deploy?repository=https://github.com/danurbanowicz/eleventy-sveltia-cms-starter&stack=cms) button
-2. Follow the simple steps
-3. Be awestruck by your awesomeness for choosing the easy way ✨
+Optionally, you can [Deploy to this template to Netlify](https://app.netlify.com/start/deploy?repository=https://github.com/danurbanowicz/eleventy-sveltia-cms-starter) which will create a new GitHub repository for you and link it to your Netlify account, configuring automatic deploys in one step. Important: You will still need to configure the CMS and setup an OAuth application in GitHub to be able to authenticate and use the CMS on your live site (see steps below).
 
-### Install this template (Advanced 🧪)
 
-1. Clone this repo or press the Use this template button to create a copy in your GitHub account.
-2. Make a local copy of your new repo on your computer.
+### Install this template
+
+1. Clone this repo or press the **Use this template** button to create a copy in your GitHub account.
+2. Make a local copy of your new repo.
 3. CD to your local repo root folder and install dependencies using `npm install`
-4. Open admin/config.yml and enter your GitHub repo details using the existing format and push your changes.
-5. In your Netlify account, go to Sites > Add new site > Import an existing project, connect to your GitHub account, and select the new repo you created earlier. Netlify will choose a random site name for you and you can change this to something else, or use your own custom domain.
+4. Open `admin/config.yml` and enter your GitHub repo details using the existing format and push your changes.
+5. In your Netlify account, go to **Sites** > **Add new site** > **Import an existing project**, connect to your GitHub account, and select the new repo you created earlier. Netlify will choose a random site name for you and you can change this to something else, or use your own custom domain.
 6. Back in your local copy of the repo, edit `_data/settings.yml` with your site title, description, and Netlify site URL and push your changes to GitHub.
 7. Once Netlify has deployed the changes to your site, go to `https://[your-netlify-site].netlify.app/admin/` and follow the steps to log in to the CMS with your GitHub account.
 8. You can now delete the sample posts and pages, and create your own new ones!
 
-### Configure the CMS
+### Local development
 
-Sveltia CMS needs to be connected to your GitHub account so it can authenticate you and make changes to your site's content. Netlify facilitates this connection to GitHub for you. Note that all of your CMS users will need to have push access to your content repository for this to work.
+You can work locally with Eleventy and the CMS without needing to configure GitHub authentication. Make sure you've followed the **Install this template** steps above first.
 
+1. To start a local Eleventy dev server, CD to your project root folder and run `npx eleventy --serve`.
+2. In a browser, access the local dev URL which is usually: `http://localhost:8080/`.
+3. On changes to your project files, the site will be re-built. Important: live browser reloading is disabled in `.eleventy.js` due to a conflict with Sveltia CMS, therefore you'll need to manually reload the page in the browser to see your changes.
+4. To access the CMS, navigate to: `http://localhost:8080/admin/` and press the **Work with Local Repository** button, and select your local repo root folder.
+5. Saved changes made to the CMS can then be committed and pushed to your remote repository.
 
+### Configure the CMS for production
 
-1. Add the following lines to your Sveltia CMS `admin/config.yml` file:
+Sveltia CMS needs to be connected to your GitHub account so it can authenticate you and make changes to your live site's content. Netlify facilitates this connection to GitHub for you. Note that all of your CMS users will need to have push access permissions to your content repository before they can log in. *Sveltia CMS does not yet support Netlify CMS's Git Gateway authentication method.*
+
+1. Set up OAuth: In GitHub, go to your account **Settings** and select **Developer Settings**, then **OAuth Apps** or use [this shortcut](https://github.com/settings/developers).
+2. Press the **New OAuth App** button
+3. For the **Authorization callback URL**, enter `https://api.netlify.com/auth/done`. For the **Homepage URL** enter your Netlify site URL e.g. `https://[your-netlify-site].netlify.app`. The other fields can contain anything you want.
+4. On your new application’s GitHub overview page, make note of the **Client ID**. Generate a **Client Secret** and make note of it for later. You can’t access this secret again.
+5. Next, in your Netlify site settings, go to **Site settings** > **Access control** > **OAuth** and under **Authentication Providers**, select **Install Provider**.
+6. Select **GitHub** and enter the **Client ID** and **Client Secret** from earlier, then save.
+7. Next, edit the following lines in your Sveltia CMS `admin/config.yml` file:
 
 ```
 backend:
@@ -57,6 +68,7 @@ backend:
   repo: owner-name/repo-name # Path to your GitHub repository
   branch: master # Optional, defaults to master
 ```
+8. Push your changes to GitHub, wait for the new deploy to complete, and try logging in to your CMS admin e.g. `https://[your-netlify-site].netlify.app/admin/`.
 
 ### How it works
 
@@ -64,9 +76,9 @@ Sveltia CMS connects to your GitHub repo in the background via GitHub's GraphQL 
 
 When you edit content through the CMS, it makes changes to the content files in your repo as git commits. Each time you make an edit and save your changes, it pushes a new commit to your repo which in turn triggers a new Netlify build of your site. This type of workflow is commonly referred to as Continuous Deployment (CD).
 
-All of your content edits are saved in your git repo commit history (a bit like a backup) so you can roll back to a previous version of your site at any time using standard git commands, or by using the GitHub.com website.
+All of your content edits are saved in your git repo commit history so you can roll back to a previous version of your site at any time using standard git commands, or by using the GitHub.com website UI.
 
-If you choose to install this project locally, you can use the CMS to make changes to your local repo, and then manually push those changes to your remote. This will trigger a new Netlify build of your site.
+If you choose to install this project locally, you can use the CMS to make changes to your local repo, and then manually push those changes to your remote (see steps above). This will trigger a new Netlify build of your site.
 
 
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/danurbanowicz/eleventy-sveltia-cms-starter)
