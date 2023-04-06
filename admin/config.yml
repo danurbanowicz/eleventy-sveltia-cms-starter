@@ -1,17 +1,19 @@
-# Sveltia CMS configuration
+# Sveltia CMS Configuration
 
-# This is where we configure the CMS repo and its collections and fields
+# This is where we configure the CMS repository and its collections and fields
 # Sveltia CMS generally follows the Decap CMS configuration spec
 # Decap CMS docs: https://decapcms.org/docs/intro/
-# Sveltia CMS docs: https://github.com/sveltia/sveltia-cms#features
+# Sveltia CMS docs: https://github.com/sveltia/sveltia-cms
 
-# Enter your repo and branch (defaults to master)
+# Enter your repository path and branch (branch defaults to master)
 backend:
   name: github
   repo: danurbanowicz/eleventy-sveltia-cms-starter
-  # branch: master
+  branch: {{ BRANCH }}
 
 # The folder used to store uploaded images
+# Ensure this folder isn't processed by 11ty by excluding it in your .eleventy.js file
+# e.g. eleventyConfig.addPassthroughCopy("assets/img");
 media_folder: "assets/img"
 
 # The CMS collections and their fields
@@ -77,7 +79,7 @@ collections:
     extension: "yml"
     format: "yml"
     files:
-      - file: "_data/site.yml"
+      - file: "_data/settings.yml"
         label: "Site Settings"
         name: "site"
         fields:
