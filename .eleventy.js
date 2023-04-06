@@ -10,10 +10,10 @@ module.exports = function(eleventyConfig) {
 
   // https://www.11ty.dev/docs/plugins/image/
   eleventyConfig.addShortcode("generateImage", async function(src, alt, sizes) {
-
-	  let metadata = await Image(src, {
-		  widths: [500, 1000, "auto"],
-		  formats: ["avif", "jpeg"],
+    
+    let metadata = await Image(src, {
+      widths: [500, 1000, "auto"],
+      formats: ["avif", "jpeg"],
       urlPath: "/assets/img/",
       outputDir: "./_site/assets/img/"
     });
@@ -24,9 +24,9 @@ module.exports = function(eleventyConfig) {
       loading: "lazy",
       decoding: "async",
     };
-
-	  return Image.generateHTML(metadata, imageAttributes);
-
+    
+    return Image.generateHTML(metadata, imageAttributes);
+  
   });
 
   // Eleventy Navigation https://www.11ty.dev/docs/plugins/navigation/
