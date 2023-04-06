@@ -6,7 +6,7 @@
 
 ## https://sveltia-cms.danurbanowicz.com/
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/danurbanowicz/eleventy-sveltia-cms-starter&stack=cms)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/danurbanowicz/eleventy-sveltia-cms-starter)
 
 ### TODO
 - Add steps for auth setup
@@ -49,18 +49,18 @@ Sveltia CMS needs to be connected to your GitHub account so it can authenticate 
 
 
 
-1. Add the following lines to your Sveltia CMS `config.yml` file:
+1. Add the following lines to your Sveltia CMS `admin/config.yml` file:
 
 ```
 backend:
   name: github
   repo: owner-name/repo-name # Path to your GitHub repository
-  # branch: main # optional, defaults to master
+  branch: master # Optional, defaults to master
 ```
 
 ### How it works
 
-Sveltia CMS connects to your GitHub repo in the background via GitHub's GraphQL API. It uses your `config.yml` file to know what your site's data looks like (pages, blog posts etc).
+Sveltia CMS connects to your GitHub repo in the background via GitHub's GraphQL API. It uses your `admin/config.yml` file to know what your site's data looks like (pages, blog posts etc).
 
 When you edit content through the CMS, it makes changes to the content files in your repo as git commits. Each time you make an edit and save your changes, it pushes a new commit to your repo which in turn triggers a new Netlify build of your site. This type of workflow is commonly referred to as Continuous Deployment (CD).
 
@@ -69,4 +69,4 @@ All of your content edits are saved in your git repo commit history (a bit like 
 If you choose to install this project locally, you can use the CMS to make changes to your local repo, and then manually push those changes to your remote. This will trigger a new Netlify build of your site.
 
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/danurbanowicz/eleventy-sveltia-cms-starter&stack=cms)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/danurbanowicz/eleventy-sveltia-cms-starter)
