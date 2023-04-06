@@ -12,9 +12,7 @@ This is a template for building a simple blog website with [Eleventy](https://ww
 
 The aim is to get you up and running in a few minutes with a free, fast, and secure blog website with a CMS for editing your content.
 
-[Sveltia CMS](https://github.com/sveltia/sveltia-cms) is a fast headless CMS based on [Netlify/Decap CMS](https://decapcms.org/).
-
-[Login to Sveltia CMS with GitHub](/admin/)
+[Login to Sveltia CMS with GitHub](/admin/) (requires repo push access)
 
 For more info on installation and usage, view the [project repo]({{ pkg.repository.url }}) on GitHub.
 
