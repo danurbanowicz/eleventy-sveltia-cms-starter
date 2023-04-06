@@ -88,5 +88,3 @@ If you need help setting up this template, or if you have any ideas or suggestio
 If you've found a bug or think something in this template is broken (very possible) please [open a new issue](https://github.com/danurbanowicz/eleventy-sveltia-cms-starter/issues) and provide as much information as you can to ensure a fast solution.
 
 If you have a question specifically related to the Sveltia CMS project, we recommend you to head over there and [open a discussion](https://github.com/sveltia/sveltia-cms/discussions).
-
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/danurbanowicz/eleventy-sveltia-cms-starter)
