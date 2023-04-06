@@ -2,8 +2,8 @@
   <meta charset="utf-8">
   <meta name="generator" content="{{ eleventy.generator }}">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ title or site.title }}</title>
-  <meta name="description" content="{{ description or eleventyComputed.description or site.description }}">
+  <title>{{ title or settings.title }}</title>
+  <meta name="description" content="{{ description or eleventyComputed.description or settings.description }}">
   {% set css %}
     {% include "assets/css/inline.css" %}
   {% endset %}

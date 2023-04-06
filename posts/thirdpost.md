@@ -1,6 +1,6 @@
 ---
 title: This is the third example post which has a slightly longer title than the others
-description: This is a sample meta description. If one is not present in your page/post's front matter, the default site.description will be used instead.
+description: This is a sample meta description. If one is not present in your page/post's front matter, the default settings.description will be used instead.
 date: 2022-09-25
 author: Jane Doe
 summary: How adding this summary to your post can increase customer success by 500%

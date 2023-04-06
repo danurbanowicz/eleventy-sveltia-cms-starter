@@ -1,15 +1,20 @@
+# Netlify Build Configuration
+
+# Output directory and 11ty build command
 [build]
   publish = "_site"
   command = "eleventy"
 
+# Cache generated content between builds (e.g. images)
+# https://github.com/jakejarvis/netlify-plugin-cache
 [[plugins]]
 package = "netlify-plugin-cache"
 
+  # Path to the 11ty cache folder
   [plugins.inputs]
   paths = [ ".cache" ]
 
-[template.environment]
-  CMS_REPO_PATH = "enter your GitHub repo path here" # e.g github-username/my-github-repo-name
-  CMS_REPO_BRANCH = "enter your GitHub repo branch here" # e.g main
+# Be aware that if you have conflicting configuration values, settings specified in
+# netlify.toml override any corresponding settings in the Netlify UI.
 
-# Learn about netlify.toml here: https://www.netlify.com/docs/netlify-toml-reference/
+# https://www.netlify.com/docs/netlify-toml-reference/
