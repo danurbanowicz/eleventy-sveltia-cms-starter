@@ -9,7 +9,7 @@
 backend:
   name: github
   repo: danurbanowicz/eleventy-sveltia-cms-starter
-  # branch: master
+  branch: master
 
 # The folder used to store uploaded images
 media_folder: "assets/img"
