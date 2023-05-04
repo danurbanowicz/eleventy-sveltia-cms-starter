@@ -8,7 +8,7 @@
 
 ## What is it?
 
-This is a template for building a simple blog website with [Eleventy](https://www.11ty.dev), [Sveltia CMS](https://github.com/sveltia/sveltia-cms), and with automatic deployment to [Netlify](https://www.netlify.com).
+This is a template for building a simple blog website with [Eleventy](https://www.11ty.dev) and [Sveltia CMS](https://github.com/sveltia/sveltia-cms), with automatic deployment to [Netlify](https://www.netlify.com).
 
 The aim is to get you up and running in a few minutes with a free, fast, and secure blog website with a headless CMS for editing your content.
 
