@@ -2,7 +2,7 @@
 
 # Eleventy Sveltia CMS Starter
 
-## Demo: https://sveltia-cms.danurbanowicz.com/
+## Demo: https://eleventy-sveltia-cms-starter.netlify.app/
 
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/danurbanowicz/eleventy-sveltia-cms-starter)
 
