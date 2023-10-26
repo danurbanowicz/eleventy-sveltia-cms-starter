@@ -3,7 +3,7 @@ title: Authors
 description: This page lists all of the Blog's authors.
 layout: layouts/base.njk
 pagination:
-  data: collections.myAuthors
+  data: collections.author
   size: Infinity
   alias: author
 eleventyNavigation:
@@ -20,13 +20,13 @@ permalink: "authors/index.html"
 
     <article>
 
-      <a href="/authors/{{ author | slug }}">
+      <a href="{{ author.url }}">
       
-        {% if author.image %}
-          {% generateImage author.image, author.name, "90vw" %}
+        {% if author.data.image %}
+          {% generateImage author.data.image, author.data.name, "90vw" %}
         {% endif %}
 
-        <h3>{{ author }}</h3>
+        <h3>{{ author.data.name }}</h3>
 
       </a>
 
