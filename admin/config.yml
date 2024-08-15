@@ -25,7 +25,7 @@ collections:
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Publish Date", name: "date", widget: "datetime" }
-      - { label: "Author", name: "author", widget: "relation", collection: "authors", search_fields: "name", value_field: "name" }
+      - { label: "Author", name: "author", widget: "relation", collection: "authors", value_field: "name" }
       - { label: "Summary", name: "summary", widget: "text" }
       - { label: "Tags", name: "tags", widget: "list", default: ["post"], hint: "Enter tags separated by a comma" }
       - label: "Image"
