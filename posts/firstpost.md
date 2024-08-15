@@ -1,8 +1,8 @@
 ---
 title: This is the first example post
 date: 2019-01-03T00:00
-author: Jane Doe
-summary: Why contemplating our mortality can increase customer success by up to 600%
+author: John Doe
+summary: Why contemplating our mortality can increase customer success by up to 500%
 tags:
   - tech
   - environment
